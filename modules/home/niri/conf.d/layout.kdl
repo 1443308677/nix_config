@@ -1,0 +1,64 @@
+// 窗口布局
+
+layout {
+
+    // 背景：透明（交给壁纸工具处理）
+    background-color "transparent"
+
+    // 窗口间距（1366x768 小屏设为 8）
+    gaps 8
+
+    // 不自动居中当前聚焦列
+    center-focused-column "never"
+
+    // 只有一列时靠左显示（false = 不居中）
+    always-center-single-column false
+
+    // 预设列宽：1/2、1/1，Mod+F 循环切换
+    preset-column-widths {
+        proportion 0.5
+        proportion 1.0
+    }
+
+    // 预设窗口高度：1/2、1/1，Mod+Shift+F 循环切换
+    preset-window-heights {
+        proportion 0.5
+        proportion 1.0
+    }
+
+    // 新窗口默认列宽撑满
+    default-column-width { proportion 1.0; }
+
+    // 焦点环
+    focus-ring {
+        width 2
+        active-color "#33b1ff"
+        inactive-color "#33b1ff40"
+    }
+    // 窗口阴影（小屏缩小参数，不臃肿）
+    shadow {
+        on
+        softness 6
+        spread 2
+        offset x=0 y=0
+        color "#00000070"
+    }
+
+    // 标签页指示器：统一使用主题配色
+    tab-indicator {
+        active-color "#33b1ff"
+        inactive-color "#525252"
+        urgent-color "#ee5396"
+    }
+
+    // 插入提示线
+    insert-hint {
+        color "#33b1ff80"
+    }
+}
+
+// 光标主题
+cursor {
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 24
+}

@@ -1,0 +1,28 @@
+# 状态栏本体:capsule 样式、起止组件列表、外接屏开关
+
+[bar]
+order = [ "bar" ]  # 状态栏顺序
+
+    [bar.bar]
+    background_opacity = 0.0  # 背景透明度
+    border_width = 0.0  # 边框宽度
+    capsule = true  # 启用胶囊样式
+    capsule_border = "outline"  # 胶囊边框样式
+    capsule_foreground = "secondary"  # 胶囊前景色
+    capsule_opacity = 0.8  # 胶囊透明度
+    capsule_padding = 10.0  # 胶囊内边距
+    capsule_radius = 80.0  # 胶囊圆角半径
+    capsule_thickness = 1.0  # 胶囊边框厚度
+    enabled = true  # 启用状态栏
+    margin_edge = 4.0  # 距顶部 4px
+    end = [ "tray", "volume", "notifications", "session" ]  # 右侧组件
+    font_family = "JetBrains Mono"  # 字体
+    margin_ends = 14.0  # 两端外边距
+    scale = 1.0  # 缩放比例
+    shadow = false  # 是否启用阴影
+    start = [ "launcher", "workspaces", "active_window" ]  # 左侧组件
+    thickness = 30.0  # 状态栏高度
+
+        # 外接屏状态栏,接屏时取消注释
+        # [bar.bar.monitor.DP-1]
+        # enabled = false

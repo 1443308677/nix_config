@@ -1,0 +1,30 @@
+# ==================== Noctalia 桌面 Shell 配置 ====================
+# 模块化结构:各关注点拆分到 conf.d/ 子目录,由下方 [include] 按序引入。
+# Noctalia 先 deep-merge include 的文件,再用本文件设置覆盖;本文件仅作索引,不含具体设置。
+
+# ==================== 主题（保留自当前项目） ====================
+[theme]
+builtin = "Noctalia"
+community_palette = "Oxocarbon"
+mode = "dark"
+source = "community"
+wallpaper_scheme = "m3-content"
+
+# ==================== 模块引入 ====================
+[include]
+files = [
+    "conf.d/shell.toml",            # 全局 shell 外观:字体/缩放/面板
+    "conf.d/session.toml",          # 会话电源菜单(快捷键 1-5)
+    "conf.d/bar.toml",              # 状态栏本体
+    "conf.d/bar-widgets.toml",      # 栏内小组件(active_window/clock/tray)
+    "conf.d/desktop-widgets.toml",  # 桌面小组件(音频可视化器)
+    "conf.d/lockscreen.toml",       # 锁屏登录框
+    "conf.d/dock.toml",             # Dock 栏
+    "conf.d/hot-corners.toml",      # 屏幕热区
+    "conf.d/theme.toml",            # 主题与配色模板
+    "conf.d/hooks.toml",            # 主题切换钩子
+    "conf.d/wallpaper.toml",        # 壁纸配置
+    "conf.d/display.toml",          # 显示:亮度/护眼/背景模糊
+    "conf.d/osd.toml",              # 屏幕通知 OSD
+    "conf.d/environment.toml",      # 系统环境:音频/地理定位
+]

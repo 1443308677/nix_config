@@ -1,0 +1,121 @@
+// 应用专属窗口规则
+// 针对特定软件的个性化设置
+
+// ===== 桌面组件 =====
+window-rule {
+    match app-id=r#"dev.noctalia.Noctalia"#
+    open-floating true
+}
+
+// ===== 文件管理器 =====
+window-rule {
+    match app-id="org.xfce.thunar"
+    open-floating true
+    opacity 0.5
+    geometry-corner-radius 12
+    clip-to-geometry true
+    draw-border-with-background false
+    background-effect {
+        blur true
+        xray true
+    }
+}
+
+// ===== Brave 浏览器通用窗口 =====
+// 只保留圆角裁剪，聚焦环由 Niri 全局控制
+window-rule {
+    match app-id="brave-browser"
+    clip-to-geometry true
+}
+
+// ===== 画中画模式 =====
+window-rule {
+    match app-id="brave-browser" title="画中画"
+    match app-id="brave-browser" title="Picture-in-Picture"
+
+    open-floating true
+    opacity 1.0
+    default-column-width {}
+    default-window-height {}
+    default-floating-position x=20 y=20 relative-to="bottom-right"
+}
+
+// ===== 系统工具（未安装，保留配置）=====
+// window-rule {
+//     match app-id=r#"^gnome-control-center$"#
+//     match app-id=r#"^pavucontrol$"#
+//     match app-id=r#"^nm-connection-editor$"#
+//     default-column-width { proportion 0.5; }
+// }
+
+// ===== 弹窗类应用（未安装，保留配置）=====
+// window-rule {
+//     match app-id=r#"^org\.gnome\.Calculator$"#
+//     match app-id=r#"^gnome-calculator$"#
+//     match app-id=r#"^galculator$"#
+//     match app-id=r#"^blueman-manager$"#
+//     match app-id=r#"^org\.gnome\.Nautilus$"#
+//     match app-id=r#"^xdg-desktop-portal$"#
+//     open-floating true
+// }
+
+// ===== 通知与气泡（未安装，保留配置）=====
+// window-rule {
+//     match app-id=r#"^steam$"# title=r#"^notificationtoasts_\d+_desktop$"#
+//     default-floating-position x=10 y=10 relative-to="bottom-right"
+// }
+
+// ===== 会议与通信（未安装，保留配置）=====
+// window-rule {
+//     match app-id="zoom"
+//     open-floating true
+// }
+
+// ===== 终端与工具（未安装，保留配置）=====
+// window-rule {
+//     match app-id=r#"org.quickshell$"#
+//     open-floating true
+// }
+
+// ===== Wine/Windows 程序兼容（未安装，保留配置）=====
+// window-rule {
+//     match app-id=r#"^wine"#
+//     open-floating true
+//     default-column-width { proportion 1.0; }
+// }
+
+// ===== 游戏专属（未安装，保留配置）=====
+// window-rule {
+//     match app-id=r#"^steam_app_.*"#
+//     match app-id=r#"^gamescope$"#
+//     match app-id=r#"^wine"#
+//     match app-id=r#"^lutris_"#
+//     match app-id=r#"^heroic"#
+//     match title=r#"(?i)genshin impact|zenless zone zero|victoria 3|minecraft|endfield"#
+//
+//     opacity 1.0
+//     background-effect {
+//         blur false
+//         xray false
+//     }
+// }
+
+// ===== 阅读器（未安装，保留配置）=====
+// window-rule {
+//     match app-id="org.pwmt.zathura"
+//     opacity 0.8
+// }
+
+// ===== 编辑器（未安装，保留配置）=====
+// window-rule {
+//     match app-id="codium"
+//     opacity 0.85
+// }
+
+// ===== 认证与登录（未安装，保留配置）=====
+// window-rule {
+//     match app-id="io.ente.auth"
+//     open-floating true
+//     default-column-width { fixed 532; }
+//     default-window-height { fixed 925; }
+// }

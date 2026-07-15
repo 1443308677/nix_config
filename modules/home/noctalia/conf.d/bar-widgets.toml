@@ -1,0 +1,11 @@
+# 状态栏内小组件配置:活动窗口、时钟、托盘
+
+[widget.active_window]
+min_length = 0  # 最小长度
+
+[widget.clock]
+format = "{:%m-%d %H:%M}"  # 月-日 时分
+
+[widget.tray]
+detached_panel = true  # 独立面板
+drawer = true  # 抽屉式

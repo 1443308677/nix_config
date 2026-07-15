@@ -1,0 +1,8 @@
+# Dock 栏
+
+[dock]
+auto_hide = true  # 自动隐藏
+enabled = true  # 启用
+radius = 20  # 圆角
+reserve_space = false  # 不占空间
+show_dots = true  # 显示点标记

@@ -1,0 +1,44 @@
+// ==================== Niri 平铺窗口合成器配置 ====================
+// 模块化结构: 各关注点拆分到 conf.d/ 子目录, 由下方 include 按序引入。
+// config.kdl 本身作为索引, 同时包含少量全局设置。
+
+// ==================== 硬件与输入 ====================
+include "conf.d/monitor.kdl"       // 显示器配置
+include "conf.d/input.kdl"         // 输入设备
+
+// ==================== 手势 ====================
+gestures {
+    hot-corners {
+        off                         // 关闭热角，防止误触
+    }
+}
+
+// ==================== 窗口布局与外观 ====================
+include "conf.d/layout.kdl"         // 布局、间距、聚焦环、阴影、光标
+include "conf.d/window-system.kdl"  // 系统级窗口默认样式
+include "conf.d/desktop.kdl"        // 桌面层叠规则
+
+// ==================== 环境变量 ====================
+include "conf.d/env.kdl"
+
+// ==================== 开机启动 ====================
+spawn-at-startup "noctalia"          // 启动 Noctalia 桌面 Shell
+
+// ==================== 界面通用设置 ====================
+hotkey-overlay {
+    skip-at-startup                  // 快捷键帮助（按 Mod+/ 查看）
+}
+
+prefer-no-csd                        // 程序不自带标题栏，交给 niri 统一管理
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// 修复 noctalia 通知和窗口激活
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
+// ==================== 动画与窗口行为 ====================
+include "conf.d/animation.kdl"      // 动画参数
+include "conf.d/window-apps.kdl"    // 应用专属窗口规则
+include "conf.d/binds.kdl"          // 快捷键
+include "conf.d/recent-windows.kdl" // Alt+Tab 快速切换窗口

@@ -1,0 +1,11 @@
+# 壁纸:自动随机切换
+
+[wallpaper]
+directory = "~/Pictures/wallpapers"  # 壁纸目录
+
+# 每 30 分钟自动随机换一张壁纸
+[wallpaper.automation]
+enabled = true           # 开启
+interval_seconds = 1800  # 30 分钟 = 1800 秒
+order = "random"         # 随机顺序
+recursive = true         # 包含子文件夹

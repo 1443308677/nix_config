@@ -1,0 +1,7 @@
+# 系统环境:音频增强、地理定位
+
+[audio]
+enable_overdrive = true  # 音频增强
+
+[location]
+address = "昆明,中国"  # 天气定位

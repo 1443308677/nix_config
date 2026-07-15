@@ -1,0 +1,4 @@
+# 事件钩子:主题切换时调用 theme-sync.sh 同步 GTK/gsettings 配置
+
+[hooks]
+theme_mode_changed = [ "~/.config/noctalia/theme-sync.sh" ]  # 主题同步脚本

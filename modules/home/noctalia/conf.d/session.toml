@@ -1,0 +1,45 @@
+# 会话电源菜单:快捷键 1=锁屏 / 2=注销 / 3=锁屏+挂起 / 4=重启 / 5=关机
+# 第 6 条为自定义命令示例(默认禁用)。
+# 与 shell.toml 的 [shell] 表 deep-merge 合并。
+
+    [[shell.session.actions]]
+    action = "lock"  # 锁屏
+    countdown_seconds = 0.0  # 无倒计时
+    enabled = true  # 启用
+    shortcut = "1"  # 快捷键
+    variant = "default"  # 默认样式
+
+    [[shell.session.actions]]
+    action = "logout"  # 注销
+    countdown_seconds = 0.0  # 无倒计时
+    enabled = true  # 启用
+    shortcut = "2"  # 快捷键
+    variant = "default"  # 默认样式
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"  # 锁屏+挂起
+    countdown_seconds = 0.0  # 无倒计时
+    enabled = true  # 启用
+    shortcut = "3"  # 快捷键
+    variant = "default"  # 默认样式
+
+    [[shell.session.actions]]
+    action = "reboot"  # 重启
+    countdown_seconds = 0.0  # 无倒计时
+    enabled = true  # 启用
+    shortcut = "4"  # 快捷键
+    variant = "default"  # 默认样式
+
+    [[shell.session.actions]]
+    action = "shutdown"  # 关机
+    countdown_seconds = 0.0  # 无倒计时
+    enabled = true  # 启用
+    shortcut = "5"  # 快捷键
+    variant = "destructive"  # 危险样式
+
+    [[shell.session.actions]]
+    action = "command"  # 自定义命令
+    command = "notify-send 'Noctalia' 'Custom session entry'"  # 示例命令
+    countdown_seconds = 0.0  # 无倒计时
+    enabled = false  # 禁用
+    variant = "default"  # 默认样式

@@ -1,0 +1,34 @@
+// 桌面层叠规则
+
+// 壁纸放在背景层，不被窗口遮挡
+layer-rule {
+    match namespace="^noctalia-wallpaper*"
+    place-within-backdrop true
+}
+
+// quickshell 也放在背景层
+layer-rule {
+    match namespace="^quickshell$"
+    place-within-backdrop true
+}
+
+// 状态栏：不透明、无圆角、无阴影、无模糊
+layer-rule {
+    match namespace="^noctalia-bar-bar$"
+    opacity 1.0
+    geometry-corner-radius 0
+    shadow {
+        off
+    }
+    background-effect {
+        blur false
+    }
+}
+
+// 总览模式背景遮罩
+overview {
+    backdrop-color "#16161680"
+    workspace-shadow {
+        off
+    }
+}

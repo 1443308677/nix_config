@@ -1,0 +1,43 @@
+// 动画
+
+animations {
+    // 切换工作区
+    workspace-switch {
+        spring damping-ratio=0.80 stiffness=523 epsilon=0.0001
+    }
+    // 窗口打开
+    window-open {
+        duration-ms 150
+        curve "ease-out-expo"
+    }
+    // 窗口关闭
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+    // 横向视图平移
+    horizontal-view-movement {
+        spring damping-ratio=0.85 stiffness=423 epsilon=0.0001
+    }
+    // 窗口拖动
+    window-movement {
+        spring damping-ratio=0.75 stiffness=323 epsilon=0.0001
+    }
+    // 窗口缩放
+    window-resize {
+        spring damping-ratio=0.85 stiffness=423 epsilon=0.0001
+    }
+    // 配置重载通知
+    config-notification-open-close {
+        spring damping-ratio=0.65 stiffness=923 epsilon=0.001
+    }
+    // 截图界面弹出
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+    // 总览模式展开/收起
+    overview-open-close {
+        spring damping-ratio=0.85 stiffness=800 epsilon=0.0001
+    }
+}

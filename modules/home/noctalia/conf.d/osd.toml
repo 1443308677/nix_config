@@ -1,0 +1,10 @@
+# 屏幕通知(OSD):音量/亮度等弹出提示
+
+[osd]
+background_opacity = 0.8  # 背景透明度
+offset_y = 20  # Y 偏移
+position = "bottom_center"  # 底部居中
+scale = 0.8  # 缩放
+
+    [osd.kinds]
+    media = false  # 隐藏媒体提示

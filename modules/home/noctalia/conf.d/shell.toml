@@ -1,0 +1,14 @@
+# 全局 shell 外观:字体、UI 缩放、控制面板
+# 会话电源菜单拆到 session.toml,靠 Noctalia deep-merge 合并到同一 [shell] 表下。
+
+[shell]
+font_family = "Noto Sans CJK SC"  # 界面字体
+settings_show_advanced = true  # 显示高级设置
+ui_scale = 1.0  # 小屏(1366×768)
+
+    [shell.panel]
+    control_center_placement = "floating"  # 控制中心悬浮
+    control_center_position = "top"  # 控制中心位置（居中）
+    transparency_mode = "soft"  # 面板半透明
+    wallpaper_placement = "floating"  # 壁纸悬浮
+    wallpaper_position = "center"  # 壁纸居中

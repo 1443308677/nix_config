@@ -1,0 +1,24 @@
+# 桌面小组件:音频可视化器
+# 坐标居中于 LVDS-1(1366×768)。
+
+[desktop_widgets]
+schema_version = 2  # 配置版本
+widget_order = [ "desktop-widget-0000000000000003" ]  # 组件顺序
+
+    [desktop_widgets.grid]
+    cell_size = 16  # 栅格大小
+    major_interval = 4  # 主间隔
+    visible = true  # 显示栅格
+
+    [desktop_widgets.widget.desktop-widget-0000000000000003]
+    box_height = 0.0  # 无边框高
+    box_width = 0.0  # 无边框宽
+    cx = 683.0  # X 坐标(居中)
+    cy = 384.0  # Y 坐标(居中)
+    output = "LVDS-1"  # 笔记本屏
+    rotation = 0.0  # 无旋转
+    type = "fancy_audio_visualizer"  # 音频可视化
+
+        [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
+        background = false  # 无背景
+        visualization_mode = "wave_rings"  # 波浪环模式

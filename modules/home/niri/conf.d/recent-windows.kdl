@@ -1,0 +1,15 @@
+// Alt+Tab 快速切换窗口
+
+recent-windows {
+    binds {
+        Alt+Tab         hotkey-overlay-title="下一窗口" { next-window scope="output"; }
+        Alt+Shift+Tab   hotkey-overlay-title="上一窗口" { previous-window scope="output"; }
+        Alt+grave       hotkey-overlay-title="同应用下一窗口" { next-window filter="app-id"; }
+        Alt+Shift+grave hotkey-overlay-title="同应用上一窗口" { previous-window filter="app-id"; }
+    }
+    highlight {
+        corner-radius 12
+        active-color "#33b1ff"
+        urgent-color "#ee5396"
+    }
+}

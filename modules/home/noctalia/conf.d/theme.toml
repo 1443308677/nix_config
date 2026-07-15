@@ -1,0 +1,13 @@
+# 主题与配色模板
+# 使用项目的 Noctalia + Oxocarbon 主题（保留自当前配置）
+# 主题模板引用自 mynoctalia
+
+[theme]
+builtin = "Noctalia"       # 内置主题（保留自当前项目）
+community_palette = "Oxocarbon"  # 社区配色（保留自当前项目）
+mode = "dark"              # 深色模式
+source = "community"         # 配色取自社区 Oxocarbon 配色
+wallpaper_scheme = "m3-content"  # M3 配色方案
+
+    [theme.templates]
+    builtin_ids = [ "qt" ]  # 内置模板（starship 由 Home Manager 管理）

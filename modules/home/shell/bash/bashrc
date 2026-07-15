@@ -1,0 +1,2 @@
+# Bash 配置：登录后自动进入 fish
+exec fish

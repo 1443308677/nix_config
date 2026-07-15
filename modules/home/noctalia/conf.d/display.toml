@@ -1,0 +1,13 @@
+# 显示相关设置:亮度控制、护眼色温、背景模糊
+
+[backdrop]
+blur_intensity = 0.5  # 模糊强度
+tint_intensity = 0.0  # 无着色
+
+[brightness]
+enable_ddcutil = false  # 笔记本背光
+# enable_ddcutil = true  # 接外接显示器时改为 true（DDC/CI）
+
+[nightlight]
+temperature_day = 10000  # 日间色温(K)
+temperature_night = 4000  # 夜间色温(K)

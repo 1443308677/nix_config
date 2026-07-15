@@ -1,0 +1,4 @@
+# 屏幕热区:鼠标推至屏幕角落触发动作
+
+[hot_corners.bottom_right]
+action = "window_switcher"  # 窗口切换器

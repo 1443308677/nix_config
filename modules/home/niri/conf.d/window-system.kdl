@@ -1,0 +1,28 @@
+// 系统级窗口通用设置
+// 所有窗口的默认样式和行为
+
+// 所有窗口默认视觉效果
+window-rule {
+    opacity 0.8
+    geometry-corner-radius 12
+    clip-to-geometry true
+    draw-border-with-background false
+    background-effect {
+        blur true
+        xray true
+    }
+}
+
+// 失焦窗口更透明，区分当前正在使用的窗口
+window-rule {
+    match is-focused=false
+    opacity 0.6
+}
+
+// 模糊参数（卡顿就删掉整个 blur 块）
+// blur {
+//     passes 3
+//     offset 2.3
+//     noise 0.001
+//     saturation 2
+// }

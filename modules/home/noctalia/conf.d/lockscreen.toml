@@ -1,0 +1,73 @@
+# 锁屏登录框小组件
+# 坐标居中于 LVDS-1(1366×768)。
+
+[lockscreen_widgets]
+enabled = true  # 启用锁屏
+schema_version = 2  # 配置版本
+widget_order = [ "lockscreen-login-box@LVDS-1" ]  # 登录框顺序
+
+    [lockscreen_widgets.grid]
+    cell_size = 16  # 栅格大小
+    major_interval = 4  # 主间隔
+    visible = true  # 显示栅格
+
+    [lockscreen_widgets.widget."lockscreen-login-box@LVDS-1"]
+    box_height = 70.0  # 框高
+    box_width = 400.0  # 框宽
+    cx = 683.0  # X 坐标(居中)
+    cy = 384.0  # Y 坐标(居中)
+    output = "LVDS-1"  # 笔记本屏
+    rotation = 0.0  # 无旋转
+    type = "login_box"  # 登录框类型
+
+        [lockscreen_widgets.widget."lockscreen-login-box@LVDS-1".settings]
+        background_color = "surface_variant"  # 背景色
+        background_opacity = 0.88  # 背景透明度
+        background_radius = 12.0  # 背景圆角
+        input_opacity = 1.0  # 输入框不透明
+        input_radius = 6.0  # 输入框圆角
+        show_caps_lock = true  # 显示大小写
+        show_keyboard_layout = true  # 显示布局
+        show_login_button = true  # 显示登录按钮
+        show_password_hint = true  # 显示密码提示
+
+    # —— 以下为外接显示器锁屏配置，接屏时取消注释即可 ——
+    # [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    # box_height = 70.0
+    # box_width = 400.0
+    # cx = 540.0
+    # cy = 1801.0
+    # output = "DP-1"
+    # rotation = 0.0
+    # type = "login_box"
+    #
+    #     [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+    #     background_color = "surface_variant"
+    #     background_opacity = 0.88
+    #     background_radius = 12.0
+    #     input_opacity = 1.0
+    #     input_radius = 6.0
+    #     show_caps_lock = true
+    #     show_keyboard_layout = true
+    #     show_login_button = true
+    #     show_password_hint = true
+
+    # [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    # box_height = 70.0
+    # box_width = 400.0
+    # cx = 1280.0
+    # cy = 1321.0
+    # output = "DP-2"
+    # rotation = 0.0
+    # type = "login_box"
+    #
+    #     [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+    #     background_color = "surface_variant"
+    #     background_opacity = 0.88
+    #     background_radius = 12.0
+    #     input_opacity = 1.0
+    #     input_radius = 6.0
+    #     show_caps_lock = true
+    #     show_keyboard_layout = true
+    #     show_login_button = true
+    #     show_password_hint = true
