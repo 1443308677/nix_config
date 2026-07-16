@@ -1,16 +1,16 @@
-{ config, ... }:
+# Home Manager shared configuration: imported by both vmware and laptop
+{ config, userName, homeDirectory, ... }:
 
 {
     imports = [
         ./shell
         ./niri
         ./noctalia
-        ./rust
     ];
 
     # 用户信息
-    home.username = "jun";
-    home.homeDirectory = "/home/jun";
+    home.username = userName;
+    home.homeDirectory = homeDirectory;
 
     # Home Manager 版本
     home.stateVersion = "26.05";

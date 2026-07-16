@@ -1,5 +1,5 @@
 {
-    description = "vm_config";
+    description = "nixos-config — unified NixOS configuration for vmware & laptop";
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
@@ -13,30 +13,78 @@
         let
             system = "x86_64-linux";
             pkgs = nixpkgs.legacyPackages.${system};
-        in {
-        nixosConfigurations = {
-            vmware = nixpkgs.lib.nixosSystem {
-                inherit system;
-                modules = [
-                    niri-flake.nixosModules.niri
-                    noctalia.nixosModules.default
-                    ({ ... }: {
-                        programs.niri.package = niri-flake.packages.${system}.niri-unstable;
-                    })
-                    ./hardware-configuration.nix
-                    ./modules/nix/system
-                    ./modules/nix/desktop
-                    ./modules/nix/programs
-                    ./modules/nix/users
-                ];
-            };
-        };
 
-        homeConfigurations = {
-            vmware = home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
-                modules = [./modules/home];
+            # Secrets: read once here, passed to modules via specialArgs
+            githubAccessToken = builtins.readFile ./secrets/github-access-token;
+
+            # Common parameters shared by all configurations
+            baseSpecialArgs = {
+                inherit system githubAccessToken;
+                userName = "jun";
+                homeDirectory = "/home/jun";
+            };
+
+            mkNixosConfig = { hostName, extraModules, extraSpecialArgs ? {} }:
+                nixpkgs.lib.nixosSystem {
+                    inherit system;
+                    specialArgs = baseSpecialArgs // { inherit hostName; } // extraSpecialArgs;
+                    modules = extraModules;
+                };
+
+            mkHomeConfig = { hostName, extraModules ? [] }:
+                home-manager.lib.homeManagerConfiguration {
+                    inherit pkgs;
+                    extraSpecialArgs = baseSpecialArgs // { inherit hostName; };
+                    modules = [
+                        ./modules/home
+                    ] ++ extraModules;
+                };
+        in {
+            # ---- NixOS System Configurations ----
+            nixosConfigurations = {
+                vmware = mkNixosConfig {
+                    hostName = "vmware";
+                    extraModules = [
+                        niri-flake.nixosModules.niri
+                        noctalia.nixosModules.default
+                        ({ ... }: {
+                            programs.niri.package = niri-flake.packages.${system}.niri-unstable;
+                        })
+                        ./hosts/vmware/hardware-configuration.nix
+                        ./modules/nixos
+                        ./hosts/vmware
+                    ];
+                };
+
+                laptop = mkNixosConfig {
+                    hostName = "laptop";
+                    extraModules = [
+                        { nixpkgs.overlays = [ niri-flake.overlays.niri ]; }
+                        niri-flake.nixosModules.niri
+                        noctalia.nixosModules.default
+                        ./hosts/laptop/hardware-configuration.nix
+                        ./modules/nixos
+                        ./hosts/laptop
+                    ];
+                };
+            };
+
+            # ---- Home Manager User Configurations ----
+            homeConfigurations = {
+                vmware = mkHomeConfig {
+                    hostName = "vmware";
+                    extraModules = [
+                        ./hosts/vmware/home.nix
+                        ./modules/home/rust
+                    ];
+                };
+
+                laptop = mkHomeConfig {
+                    hostName = "laptop";
+                    extraModules = [
+                        ./hosts/laptop/home.nix
+                    ];
+                };
             };
         };
-    };
 }

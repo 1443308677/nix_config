@@ -1,3 +1,4 @@
+# User-facing applications
 { config, pkgs, ... }:
 
 {

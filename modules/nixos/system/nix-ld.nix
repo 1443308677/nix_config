@@ -1,3 +1,4 @@
+# nix-ld: run pre-compiled binaries on NixOS
 { config, pkgs, ... }:
 
 {

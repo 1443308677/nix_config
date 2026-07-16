@@ -1,29 +1,37 @@
-{ config, pkgs, ... }: {
+# Niri user configuration: keybindings, monitor layout (per-host), GTK theme
+{ config, pkgs, lib, ... }:
+
+let
+    cfg = config.programs.niri;
+in {
     imports = [
         ./gtk.nix
     ];
 
-    # 主入口
-    xdg.configFile."niri/config.kdl" = {
-        force = true;
-        source = ./conf.d/config.kdl;
+    options.programs.niri.monitorConfigFile = lib.mkOption {
+        type = lib.types.path;
+        default = ./conf.d/monitor.kdl;
+        description = "Per-host niri monitor configuration file";
     };
 
-    # 子配置目录
-    xdg.configFile."niri/conf.d" = {
-        force = true;
-        source = pkgs.runCommand "niri-conf-d" { } ''
-            mkdir -p $out
-            cp ${./conf.d}/monitor.kdl $out/
-            cp ${./conf.d}/input.kdl $out/
-            cp ${./conf.d}/layout.kdl $out/
-            cp ${./conf.d}/window-system.kdl $out/
-            cp ${./conf.d}/desktop.kdl $out/
-            cp ${./conf.d}/env.kdl $out/
-            cp ${./conf.d}/animation.kdl $out/
-            cp ${./conf.d}/window-apps.kdl $out/
-            cp ${./conf.d}/binds.kdl $out/
-            cp ${./conf.d}/recent-windows.kdl $out/
-        '';
+    config = {
+        # 主入口
+        xdg.configFile."niri/config.kdl" = {
+            force = true;
+            source = ./conf.d/config.kdl;
+        };
+
+        # 子配置目录
+        xdg.configFile."niri/conf.d" = {
+            force = true;
+            source = pkgs.runCommand "niri-conf-d" {
+                src = ./conf.d;
+                monitorConfig = cfg.monitorConfigFile;
+            } ''
+                mkdir -p "$out"
+                cp -r "$src"/* "$out/"
+                cp -f "$monitorConfig" "$out/monitor.kdl"
+            '';
+        };
     };
 }

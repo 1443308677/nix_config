@@ -1,4 +1,5 @@
-{ config, pkgs, ... }:
+# Niri compositor, greetd login, fcitx5 input method, and desktop environment packages
+{ config, pkgs, userName, ... }:
 
 {
     programs.niri = {
@@ -10,7 +11,7 @@
         settings = {
             default_session = {
                 command = "${config.programs.niri.package}/bin/niri-session";
-                user = "jun";
+                user = userName;
             };
         };
     };

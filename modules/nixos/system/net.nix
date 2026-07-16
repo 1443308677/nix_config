@@ -1,8 +1,9 @@
-{ config, pkgs, lib, ... }:
+# Network configuration: hostname, NetworkManager, DNS, SSH
+{ config, pkgs, lib, hostName, ... }:
 
 {
     networking = {
-        hostName = "vmware";
+        inherit hostName;
         networkmanager.enable = true;
         nameservers = [ "192.168.2.2" "1.1.1.1" ];
 

@@ -1,10 +1,11 @@
-{ config, pkgs, ... }:
+# Nix daemon settings: unfree packages, flakes, substituters, access tokens
+{ config, pkgs, githubAccessToken, ... }:
 
 {
     nixpkgs.config.allowUnfree = true;
     nix.settings = {
         experimental-features = [ "nix-command" "flakes" ];
-        access-tokens = [ "github.com=${builtins.readFile ./../../../secrets/github-access-token}" ];
+        access-tokens = [ "github.com=${githubAccessToken}" ];
         substituters = [
             "https://niri.cachix.org"
             "https://noctalia.cachix.org"

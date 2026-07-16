@@ -1,3 +1,4 @@
+# Audio: PipeWire (replaces PulseAudio)
 { config, pkgs, ... }:
 
 {

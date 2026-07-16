@@ -1,3 +1,4 @@
+# Timezone and locale settings
 { config, pkgs, ... }:
 
 {
@@ -17,8 +18,6 @@
             LC_TIME = "zh_CN.UTF-8";
         };
     };
-
-    services.printing.enable = true;
 
     environment.systemPackages = with pkgs; [
         git

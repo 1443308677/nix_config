@@ -2,6 +2,5 @@ result
 result-*
 .direnv
 .env
-laptop_config/
 
 .trae/

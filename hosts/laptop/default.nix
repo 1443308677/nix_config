@@ -2,6 +2,7 @@
 
 {
     imports = [
-        ./brave.nix
+        ./boot.nix
+        ./laptop-hardware.nix
     ];
 }

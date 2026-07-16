@@ -2,6 +2,7 @@
 
 {
     imports = [
-        ./user.nix
+        ./boot.nix
+        ./vmware-hardware.nix
     ];
 }
