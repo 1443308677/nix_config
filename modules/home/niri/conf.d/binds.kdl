@@ -8,12 +8,13 @@ binds {
     Mod+V                hotkey-overlay-title="剪贴板" { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
     Mod+T                hotkey-overlay-title="终端" { spawn "alacritty"; }
     Mod+E                hotkey-overlay-title="文件管理器" { spawn "thunar"; }
+    Mod+B                hotkey-overlay-title="浏览器" { spawn "brave"; }
+    Mod+N                hotkey-overlay-title="夜览开关" { spawn "nightlight-toggle"; }
 
     // ===== 窗口管理 =====
     Mod+Q                hotkey-overlay-title=null { close-window; }
     Mod+D                hotkey-overlay-title="总览模式" { toggle-overview; }
-    F7                   hotkey-overlay-title=null { close-window; }
-    F8                   hotkey-overlay-title=null { fullscreen-window; }
+    Mod+Return           hotkey-overlay-title="全屏" { fullscreen-window; }
 
     // ===== 方向键聚焦 =====
     Mod+Left             hotkey-overlay-title=null { focus-column-left; }
@@ -61,22 +62,8 @@ binds {
     Ctrl+Print           hotkey-overlay-title=null { screenshot-screen; }
     Alt+Print            hotkey-overlay-title=null { screenshot-window; }
 
-    // ===== 音量（锁屏下也可用）=====
-    // 键盘默认 F 键直接控制音量（Fn+FX 用原始功能）
-    Mod+F10              allow-when-locked=true hotkey-overlay-title="静音" { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    Mod+F11              allow-when-locked=true hotkey-overlay-title="音量减" { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-    Mod+F12              allow-when-locked=true hotkey-overlay-title="音量加" { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+    // ===== 音量 =====
     XF86AudioMicMute     allow-when-locked=true hotkey-overlay-title="麦克风静音" { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-
-    // ===== 亮度（锁屏下也可用）=====
-    Mod+F5               allow-when-locked=true hotkey-overlay-title="亮度减" { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
-    Mod+F6               allow-when-locked=true hotkey-overlay-title="亮度加" { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-
-    // ===== Fn 功能键（Mod+ 组合）=====
-    Mod+F1               allow-when-locked=true hotkey-overlay-title="休眠" { spawn "systemctl" "suspend"; }
-    Mod+F2               allow-when-locked=true hotkey-overlay-title="WiFi 开关" { spawn "nmcli" "radio" "wifi" "toggle"; }
-    Mod+F3               hotkey-overlay-title="浏览器" { spawn "brave"; }
-    Mod+F4               hotkey-overlay-title="夜览开关" { spawn "nightlight-toggle"; }
 
     // ===== 媒体播放 =====
     XF86AudioPlay  allow-when-locked=true hotkey-overlay-title="播放/暂停" { spawn "playerctl" "play-pause"; }
@@ -135,5 +122,4 @@ binds {
     Super+Alt+L          hotkey-overlay-title="锁屏" { spawn "swaylock" "-f" "-c" "161616"; }
     Mod+Slash            hotkey-overlay-title="快捷键帮助" { show-hotkey-overlay; }
     Mod+Shift+R          hotkey-overlay-title="重启 Niri" { quit skip-confirmation=true; }
-    Mod+Shift+E          hotkey-overlay-title="退出 niri" { quit skip-confirmation=true; }
 }

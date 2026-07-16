@@ -3,13 +3,13 @@
         ./gtk.nix
     ];
 
-    # 主入口配置文件
+    # 主入口
     xdg.configFile."niri/config.kdl" = {
         force = true;
         source = ./conf.d/config.kdl;
     };
 
-    # 子配置目录（不含 config.kdl 本身）
+    # 子配置目录
     xdg.configFile."niri/conf.d" = {
         force = true;
         source = pkgs.runCommand "niri-conf-d" { } ''

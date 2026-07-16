@@ -1,12 +1,15 @@
 { pkgs, ... }:
 
 {
-    # GTK 暗色主题（Thunar 等 GTK3 应用）
     gtk = {
         enable = true;
         theme = {
-            name = "Adwaita-dark";
-            package = pkgs.gnome-themes-extra;
+            name = "Catppuccin-Mocha-Standard-Blue-Dark";
+            package = pkgs.catppuccin-gtk.override {
+                accents = [ "blue" ];
+                size = "standard";
+                variant = "mocha";
+            };
         };
         gtk3.extraConfig."gtk-application-prefer-dark-theme" = 1;
     };

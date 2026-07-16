@@ -22,7 +22,7 @@ widget_order = [ "lockscreen-login-box@LVDS-1" ]  # 登录框顺序
 
         [lockscreen_widgets.widget."lockscreen-login-box@LVDS-1".settings]
         background_color = "surface_variant"  # 背景色
-        background_opacity = 0.88  # 背景透明度
+        background_opacity = 0.8  # 背景透明度
         background_radius = 12.0  # 背景圆角
         input_opacity = 1.0  # 输入框不透明
         input_radius = 6.0  # 输入框圆角

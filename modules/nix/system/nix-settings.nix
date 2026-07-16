@@ -4,7 +4,7 @@
     nixpkgs.config.allowUnfree = true;
     nix.settings = {
         experimental-features = [ "nix-command" "flakes" ];
-        access-tokens = [ "github.com=${builtins.readFile /home/jun/.config/nix/github-access-token}" ];
+        access-tokens = [ "github.com=${builtins.readFile ./../../../secrets/github-access-token}" ];
         substituters = [
             "https://niri.cachix.org"
             "https://noctalia.cachix.org"

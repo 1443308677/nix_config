@@ -16,7 +16,7 @@ window-rule {
 // 失焦窗口更透明，区分当前正在使用的窗口
 window-rule {
     match is-focused=false
-    opacity 0.6
+    opacity 0.8
 }
 
 // 模糊参数（卡顿就删掉整个 blur 块）
