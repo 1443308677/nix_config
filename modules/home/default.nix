@@ -20,14 +20,6 @@
     # 夜览切换脚本（Mod+F4）
     home.file.".local/bin/nightlight-toggle" = {
         executable = true;
-        text = ''
-            #!/usr/bin/env bash
-            if pgrep wlsunset >/dev/null 2>&1; then
-                pkill wlsunset
-            else
-                wlsunset -t 4000 -T 10000 &
-                disown
-            fi
-        '';
+        source = ./scripts/nightlight-toggle.sh;
     };
 }

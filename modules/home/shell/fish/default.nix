@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-    myAliases = { ".." = "cd .."; };
+    myAliases = import ../aliases.nix;
 in
 
 {

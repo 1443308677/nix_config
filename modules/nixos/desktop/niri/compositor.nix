@@ -1,11 +1,8 @@
-# Niri compositor, greetd login, fcitx5 input method, and desktop environment packages
+# Niri greetd 登录管理器与桌面服务
 { config, pkgs, userName, ... }:
 
 {
-    programs.niri = {
-        enable = true;
-    };
-
+    # ==================== Greetd 登录管理器 ====================
     services.greetd = {
         enable = true;
         settings = {
@@ -16,38 +13,24 @@
         };
     };
 
+    # ==================== 系统服务 ====================
     security.polkit.enable = true;
 
-    services.udev.extraRules = ''
-        SUBSYSTEM=="backlight", ACTION=="add", RUN+="${pkgs.coreutils}/bin/chgrp video /sys/class/backlight/%k/brightness", RUN+="${pkgs.coreutils}/bin/chmod g+w /sys/class/backlight/%k/brightness"
-    '';
-
     services.udisks2.enable = true;
-
-    xdg.portal = {
-        enable = true;
-        extraPortals = with pkgs; [
-            xdg-desktop-portal-gtk
-            xdg-desktop-portal-gnome
-        ];
-        configPackages = [ pkgs.niri ];
-    };
 
     services.gnome.gnome-keyring.enable = true;
     security.pam.services.greetd.enableGnomeKeyring = true;
 
-    i18n.inputMethod = {
-        type = "fcitx5";
-        enable = true;
-        fcitx5.addons = with pkgs; [ qt6Packages.fcitx5-chinese-addons ];
-    };
+    services.gvfs.enable = true;
 
+    # ==================== 环境变量 ====================
     environment.sessionVariables = {
         NIXOS_OZONE_WL = "1";
         QT_IM_MODULE = "fcitx";
         XMODIFIERS = "@im=fcitx";
     };
 
+    # ==================== 系统包 ====================
     environment.systemPackages = with pkgs; [
         alacritty
         thunar
@@ -58,6 +41,4 @@
         wlsunset
         swaylock
     ];
-
-    services.gvfs.enable = true;
 }

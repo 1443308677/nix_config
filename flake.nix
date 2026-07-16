@@ -77,7 +77,7 @@
                     hostName = "vmware";
                     extraModules = [
                         ./hosts/vmware/home.nix
-                        ./modules/home/rust
+                        ./modules/home/rust.nix
                     ];
                 };
 
