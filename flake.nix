@@ -47,8 +47,8 @@
                     extraModules = [
                         niri-flake.nixosModules.niri
                         noctalia.nixosModules.default
-                        ({ ... }: {
-                            programs.niri.package = niri-flake.packages.${system}.niri-unstable;
+                        ({ pkgs, ... }: {
+                            programs.niri.package = pkgs.niri;
                         })
                         ./hosts/vmware/hardware-configuration.nix
                         ./modules/nixos
@@ -60,7 +60,9 @@
                     hostName = "laptop";
                     extraModules = [
                         niri-flake.nixosModules.niri
-                        { nixpkgs.overlays = [ niri-flake.overlays.niri ]; }
+                        ({ pkgs, ... }: {
+                            programs.niri.package = pkgs.niri;
+                        })
                         noctalia.nixosModules.default
                         ./hosts/laptop/hardware-configuration.nix
                         ./modules/nixos
