@@ -59,10 +59,8 @@
                 laptop = mkNixosConfig {
                     hostName = "laptop";
                     extraModules = [
-                        # Note: niri overlay removed temporarily for fast first-time deployment.
-                        # Once the system is switched and cache keys are trusted, add back:
-                        #   { nixpkgs.overlays = [ niri-flake.overlays.niri ]; }
                         niri-flake.nixosModules.niri
+                        { nixpkgs.overlays = [ niri-flake.overlays.niri ]; }
                         noctalia.nixosModules.default
                         ./hosts/laptop/hardware-configuration.nix
                         ./modules/nixos
